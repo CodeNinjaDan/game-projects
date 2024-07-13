@@ -1,4 +1,4 @@
-# Computer tries to guess the number that th user has in mind
+# Computer tries to guess the number that the user has in mind
 
 import random
 def computer_guess(x):
@@ -9,7 +9,7 @@ def computer_guess(x):
         if low != high:
             guess = random.randint(low, high)
         else:
-            guess = low #could also be high because low = high
+            guess = low # could also be high b/c low = high
         feedback = input(f'Is {guess} too high (H), too low (L), or correct (C)??').lower()
         if feedback == 'h':
             high = guess - 1
