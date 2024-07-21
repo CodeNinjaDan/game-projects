@@ -2,7 +2,7 @@
 import time
 from Player import HumanPlayer, RandomComputerPlayer
 
-class TicTacToe:
+class TicTacToe():
     def __init__(self):
         self.board = [' ' for _ in range(9)] #single list to rep a 3x3 board
         self.current_winner = None #keep track of winner
@@ -10,30 +10,15 @@ class TicTacToe:
     def print_board(self):
         #getting the rows
         for row in [self.board[i*3:(i+1)*3] for i in range(3)]:
-            print(' | ' + ' | '.join(row) + ' | ')
+            print('| ' + ' | '.join(row) + ' |')
 
     @staticmethod
     def print_board_nums():
         # 0 | 1 | 2 tells us what number corresponds to what box
         number_board = [[str(i) for i in range(j*3, (j+1)*3)] for j in range(3)]
         for row in number_board:
-            print(' | ' + ' | '.join(row) + ' | ')
+            print(' | ' + ' | '.join(row) + ' |')
 
-    def available_moves(self):
-        return [i for i, spot in enumerate(self.board) if spot == ' ']
-    # moves = []
-    # for (i, spot) in enumarate(self.board):
-    #     # ['x', 'x', 'o'] --> [(0, 'x'), (1, 'x')]
-    #     if spot == ' ':
-    #        moves.append(i)
-    #return moves
-
-    def empty_squares(self):
-        return ' ' in self.board
-    
-    def num_empty_squares(self):
-        return self.board.count(' ')
-    
     def make_move(self, square, letter):
         # if move is valid, then make the move (assign square to letter)
         # then return True, else False
@@ -53,7 +38,7 @@ class TicTacToe:
         
         # check column
         col_ind = square % 3
-        column = [self.board[col_ind+i*3] for i in range()]
+        column = [self.board[col_ind+i*3] for i in range(3)]
         if all([spot == letter for spot in column]):
             return True
 
@@ -68,6 +53,21 @@ class TicTacToe:
                 return True
             
         return False
+
+    def empty_squares(self):
+        return ' ' in self.board
+    
+    def num_empty_squares(self):
+        return self.board.count(' ')
+    
+    def available_moves(self):
+        return [i for i, spot in enumerate(self.board) if spot == ' ']
+    # moves = []
+    # for (i, spot) in enumarate(self.board):
+    #     # ['x', 'x', 'o'] --> [(0, 'x'), (1, 'x')]
+    #     if spot == ' ':
+    #        moves.append(i)
+    #return moves
 
 def play(game, x_player, o_player, print_game=True):
 
@@ -94,12 +94,12 @@ def play(game, x_player, o_player, print_game=True):
                     print(letter + 'wins!')
                 return letter
 
-        letter = 'O' if letter == 'x' else 'x' # switches player 
+        letter = 'O' if letter == 'X' else 'X' # switches player 
         #  if letter == 'X'
         #      letter = "O'
         #  else:
         #      letter = 'X'
-        time.sleep(1.0)
+        time.sleep(0.7)
 
     if print_game:
         print("It's a tie!")
