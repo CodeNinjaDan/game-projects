@@ -67,8 +67,8 @@ def solve_sudoku(puzzle):
             #5. If not valid or if nothing gets returned true, backtrack and try new number 
             puzzle[row][col] = -1
 
-        #6. If none of the numbers work then puzzle is unsolvable
-        return False 
+    #6. If none of the numbers work then puzzle is unsolvable
+    return False 
     
 if __name__ == '__main__':
     example_board = [
@@ -85,5 +85,4 @@ if __name__ == '__main__':
         [1, -1, 9,   -1, -1, -1,   2, -1, -1]
     ]
     print(solve_sudoku(example_board))
-    print(example_board)
- 
+    pprint(example_board)
