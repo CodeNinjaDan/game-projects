@@ -68,7 +68,3 @@ elif user == 'p' and computer == 's':
 
 elif user == 's' and computer == 'r':
     print("You lose!:(")
-
-
-
-
