@@ -47,15 +47,14 @@ while game_is_on:
         snake.extend()
 
     if snake.head.xcor() > 325 or snake.head.xcor() < -325 or snake.head.ycor() > 325 or snake.head.ycor() < -325:
-        game_is_on = False
-        score.game_over()
+        score.reset_score()
+        snake.reset_snake()
 
     #Detect collision with the tail.
     #Use python slicing to shorten if statement.
     for segment in snake.segments[1:]:
         if snake.head.distance(segment) < 8:
-            game_is_on =False
-            score.game_over()
-
+            score.reset_score()
+            snake.reset_snake()
 
 screen.exitonclick()
