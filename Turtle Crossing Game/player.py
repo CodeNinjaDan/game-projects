@@ -9,6 +9,7 @@ class Player(Turtle):
         super().__init__()
         self.shape("turtle")
         self.penup()
+        self.setposition(STARTING_POSITION)
         self.color("limegreen")
         self.setheading(90)
         self.move = MOVE_DISTANCE
